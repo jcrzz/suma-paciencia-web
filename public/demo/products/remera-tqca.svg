@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Remera Todo queda acá, muestra">
+  <defs>
+    <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+    <linearGradient id="sh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2f28"/><stop offset="1" stop-color="#121310"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#E7DDCB"/>
+  <path d="M180 210 L320 120 L480 120 L620 210 L560 330 L500 300 L500 830 L300 830 L300 300 L240 330 Z" fill="url(#sh)"/>
+  <path d="M320 120 C 350 190, 450 190, 480 120" fill="#1b1e19"/>
+  <circle cx="400" cy="430" r="150" fill="#D99B26"/>
+  <path d="M250 430 q 50 -40 100 0 t 100 0 t 100 0" fill="none" stroke="#121310" stroke-width="10"/>
+  <path d="M250 500 q 50 -40 100 0 t 100 0 t 100 0" fill="none" stroke="#5C7A4E" stroke-width="10"/>
+  <text x="400" y="660" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="64">TODO</text>
+  <text x="400" y="726" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="64">QUEDA ACÁ</text>
+  <text x="400" y="782" text-anchor="middle" fill="#D99B26" font-family="monospace" font-size="26" letter-spacing="6">SUMA PACIENCIA</text>
+  <text x="60" y="940" fill="#8a8172" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
+  <rect width="800" height="1000" filter="url(#g)" opacity="0.06"/>
+</svg>

@@ -1,0 +1,97 @@
+/* Genera la imagen social (public/og.svg + public/og.png 1200x630) con el Chrome del sistema */
+import { chromium } from 'playwright-core';
+import { writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+const fonts = {
+  fraunces: pathToFileURL(
+    resolve(root, 'node_modules/@fontsource-variable/fraunces/full.css')
+  ).href,
+  dmsans: pathToFileURL(
+    resolve(root, 'node_modules/@fontsource-variable/dm-sans/index.css')
+  ).href,
+  jetbrains: pathToFileURL(
+    resolve(root, 'node_modules/@fontsource-variable/jetbrains-mono/index.css')
+  ).href,
+};
+
+const display = "'Fraunces Variable', Georgia, serif";
+const mono = "'JetBrains Mono Variable', ui-monospace, monospace";
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+    <pattern id="grooves" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3.5" r="3.1" fill="none" stroke="rgba(244,239,230,.12)" stroke-width="0.8" />
+    </pattern>
+    <radialGradient id="glow" cx="0.82" cy="0.22" r="0.75">
+      <stop offset="0" stop-color="#D99B26" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#D99B26" stop-opacity="0" />
+    </radialGradient>
+    <clipPath id="disc">
+      <circle cx="960" cy="300" r="265" />
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="630" fill="#121310" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+
+  <g clip-path="url(#disc)">
+    <circle cx="960" cy="300" r="265" fill="#1A211B" />
+    <circle cx="960" cy="300" r="265" fill="url(#grooves)" />
+    <circle cx="960" cy="300" r="196" fill="none" stroke="rgba(244,239,230,.10)" stroke-width="1" />
+    <circle cx="960" cy="300" r="128" fill="none" stroke="rgba(244,239,230,.10)" stroke-width="1" />
+    <path d="M0 392 C 180 366, 340 414, 520 382 C 700 350, 860 400, 1040 370 C 1120 356, 1170 362, 1200 354" fill="none" stroke="#5C7A4E" stroke-width="4" opacity="0.7" />
+    <path d="M0 438 C 200 414, 360 458, 540 428 C 720 398, 880 446, 1060 418 C 1130 406, 1175 410, 1200 404" fill="none" stroke="#5C7A4E" stroke-width="3" opacity="0.45" />
+    <path d="M0 482 C 210 460, 380 500, 560 472 C 740 444, 900 486, 1080 460 C 1140 450, 1180 454, 1200 448" fill="none" stroke="#C85A32" stroke-width="3" opacity="0.35" />
+  </g>
+  <circle cx="960" cy="300" r="265" fill="none" stroke="rgba(244,239,230,.18)" stroke-width="1.5" />
+  <circle cx="960" cy="300" r="96" fill="#D99B26" />
+  <circle cx="960" cy="300" r="96" fill="url(#grooves)" opacity="0.45" />
+  <circle cx="960" cy="300" r="9" fill="#121310" />
+  <text x="960" y="286" text-anchor="middle" fill="#121310" font-family="${display}" font-weight="800" font-size="30">TODO</text>
+  <text x="960" y="318" text-anchor="middle" fill="#121310" font-family="${display}" font-weight="800" font-size="30">QUEDA</text>
+  <text x="960" y="348" text-anchor="middle" fill="#121310" font-family="${display}" font-weight="800" font-size="30">ACÁ</text>
+  <text x="960" y="384" text-anchor="middle" fill="#121310" font-family="${mono}" font-size="13" letter-spacing="3">SUMA PACIENCIA</text>
+
+  <text x="72" y="132" fill="#D99B26" font-family="${mono}" font-size="20" letter-spacing="4.5">REGGAE ROOTS DEL LITORAL · 2009</text>
+  <text x="72" y="278" fill="#F4EFE6" font-family="${display}" font-weight="800" font-size="108" letter-spacing="-4">SUMA</text>
+  <text x="72" y="390" fill="#F4EFE6" font-family="${display}" font-weight="800" font-size="108" letter-spacing="-4">PACIENCIA</text>
+  <rect x="72" y="424" width="132" height="5" fill="#D99B26" />
+  <text x="72" y="498" fill="#E7DDCB" font-family="${display}" font-style="italic" font-weight="500" font-size="46">Todo queda acá</text>
+  <text x="72" y="546" fill="#A7A18F" font-family="${mono}" font-size="19" letter-spacing="3.4">NUEVO DISCO · 9 CANCIONES · 2026</text>
+
+  <rect x="36" y="36" width="1128" height="558" fill="none" stroke="rgba(244,239,230,.16)" stroke-width="1" />
+  <rect x="0" y="622" width="1200" height="8" fill="#C85A32" />
+  <text x="72" y="602" fill="#A7A18F" font-family="${mono}" font-size="17" letter-spacing="3">SUMAPACIENCIA.COM.AR</text>
+  <text x="1128" y="602" text-anchor="end" fill="#A7A18F" font-family="${mono}" font-size="17" letter-spacing="3">FECHAS · MÚSICA · TIENDA · PRENSA</text>
+
+  <rect width="1200" height="630" filter="url(#grain)" opacity="0.055" />
+</svg>`;
+
+writeFileSync(resolve(root, 'public/og.svg'), svg, 'utf8');
+
+const html = `<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="${fonts.fraunces}">
+<link rel="stylesheet" href="${fonts.dmsans}">
+<link rel="stylesheet" href="${fonts.jetbrains}">
+<style>html,body{margin:0;padding:0;background:#121310;width:1200px;height:630px;overflow:hidden}</style>
+</head><body>${svg}</body></html>`;
+
+const browser = await chromium.launch({ channel: 'chrome', args: ['--no-sandbox'] });
+const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+await page.setContent(html, { waitUntil: 'networkidle' });
+await page.evaluate(() => document.fonts.ready);
+await page.screenshot({ path: resolve(root, 'public/og.png'), clip: { x: 0, y: 0, width: 1200, height: 630 } });
+await page.close();
+await browser.close();
+
+console.log('OK public/og.svg + public/og.png');
+process.exit(0);

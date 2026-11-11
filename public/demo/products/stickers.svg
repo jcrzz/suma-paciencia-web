@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Pack de stickers, muestra">
+  <defs><filter id="g7"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+  <rect width="800" height="1000" fill="#1A211B"/>
+  <g stroke="#121310" stroke-width="6">
+    <circle cx="280" cy="330" r="120" fill="#D99B26"/>
+    <rect x="430" y="200" width="220" height="220" fill="#5C7A4E"/>
+    <circle cx="300" cy="660" r="110" fill="#C85A32"/>
+    <path d="M470 560 L680 560 L680 770 L470 770 Z" fill="#F4EFE6"/>
+  </g>
+  <text x="280" y="345" text-anchor="middle" fill="#121310" font-family="Georgia, serif" font-weight="bold" font-size="40">SP</text>
+  <text x="540" y="325" text-anchor="middle" fill="#F4EFE6" font-family="monospace" font-size="34" letter-spacing="3">2009</text>
+  <text x="300" y="675" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="38">ROOT</text>
+  <text x="575" y="690" text-anchor="middle" fill="#121310" font-family="Georgia, serif" font-weight="bold" font-size="40">TQCA</text>
+  <text x="60" y="940" fill="#7d7768" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
+  <rect width="800" height="1000" filter="url(#g7)" opacity="0.06"/>
+</svg>

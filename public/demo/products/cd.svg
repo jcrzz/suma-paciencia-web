@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="CD Todo queda acá, muestra">
+  <defs>
+    <radialGradient id="cd" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f2ead9"/><stop offset="40%" stop-color="#b9b3a5"/><stop offset="100%" stop-color="#6f6c63"/>
+    </radialGradient>
+    <filter id="g4"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="800" height="1000" fill="#1A211B"/>
+  <rect x="80" y="120" width="640" height="640" fill="#F4EFE6"/>
+  <circle cx="400" cy="440" r="250" fill="url(#cd)"/>
+  <g stroke="#F4EFE6" fill="none" opacity="0.35">
+    <circle cx="400" cy="440" r="210"/><circle cx="400" cy="440" r="170"/><circle cx="400" cy="440" r="130"/>
+  </g>
+  <circle cx="400" cy="440" r="92" fill="#D99B26"/>
+  <circle cx="400" cy="440" r="16" fill="#121310"/>
+  <text x="400" y="700" text-anchor="middle" fill="#121310" font-family="Georgia, serif" font-weight="bold" font-size="58">TODO QUEDA ACÁ</text>
+  <text x="400" y="744" text-anchor="middle" fill="#C85A32" font-family="monospace" font-size="22" letter-spacing="6">CD · IMPRONTA MUSIC</text>
+  <text x="60" y="960" fill="#7d7768" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
+  <rect width="800" height="1000" filter="url(#g4)" opacity="0.06"/>
+</svg>

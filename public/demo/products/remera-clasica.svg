@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Remera Suma Paciencia, muestra">
+  <defs>
+    <filter id="g2"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="800" height="1000" fill="#1A211B"/>
+  <path d="M180 210 L320 120 L480 120 L620 210 L560 330 L500 300 L500 830 L300 830 L300 300 L240 330 Z" fill="#F4EFE6"/>
+  <path d="M320 120 C 350 190, 450 190, 480 120" fill="#ded5c3"/>
+  <rect x="330" y="380" width="140" height="140" fill="#1A211B"/>
+  <path d="M345 420 h 110 M345 455 h 110 M345 490 h 70" stroke="#D99B26" stroke-width="10"/>
+  <text x="400" y="620" text-anchor="middle" fill="#121310" font-family="Georgia, serif" font-weight="bold" font-size="56">SUMA</text>
+  <text x="400" y="682" text-anchor="middle" fill="#121310" font-family="Georgia, serif" font-weight="bold" font-size="56">PACIENCIA</text>
+  <text x="400" y="738" text-anchor="middle" fill="#C85A32" font-family="monospace" font-size="24" letter-spacing="6">C.D.U. · 2009</text>
+  <text x="60" y="940" fill="#7d7768" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
+  <rect width="800" height="1000" filter="url(#g2)" opacity="0.06"/>
+</svg>

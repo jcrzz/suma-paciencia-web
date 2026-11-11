@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Backstage">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#241d16"/><stop offset="1" stop-color="#3a2c1d"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="38%" r="55%"><stop offset="0" stop-color="#D99B26" stop-opacity="0.55"/><stop offset="1" stop-color="#D99B26" stop-opacity="0"/></radialGradient>
+    <filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="900" height="600" fill="url(#sky)"/>
+  <rect width="900" height="600" fill="url(#glow)"/>
+  
+  <rect y="470" width="900" height="130" fill="#1d1811"/>
+  <rect x="150" y="360" width="600" height="120" fill="#0f110d"/>
+  <g fill="#0b0c0a">
+    <rect x="210" y="290" width="60" height="90" rx="26"/><rect x="300" y="250" width="58" height="130" rx="26"/>
+    <rect x="386" y="282" width="54" height="98" rx="24"/><rect x="468" y="258" width="60" height="122" rx="26"/>
+    <rect x="556" y="292" width="52" height="88" rx="24"/>
+  </g>
+  <g fill="#D99B26">
+    <rect x="222" y="300" width="36" height="18"/><rect x="311" y="262" width="36" height="18"/>
+    <rect x="397" y="294" width="32" height="16"/><rect x="479" y="270" width="36" height="18"/>
+    <rect x="565" y="304" width="32" height="16"/>
+  </g>
+  
+  <rect x="24" y="24" width="299" height="40" fill="#121310" opacity="0.8"/>
+  <text x="38" y="51" fill="#F4EFE6" font-family="monospace" font-size="18" letter-spacing="3">MUESTRA · GALERÍA DE DEMO</text>
+  <rect width="900" height="600" filter="url(#n)" opacity="0.09"/>
+</svg>

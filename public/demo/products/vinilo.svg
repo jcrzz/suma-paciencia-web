@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Vinilo Todo queda acá, muestra">
+  <defs>
+    <radialGradient id="disc" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3a3f36"/><stop offset="35%" stop-color="#171a15"/><stop offset="100%" stop-color="#0b0c0a"/>
+    </radialGradient>
+    <filter id="g3"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="800" height="1000" fill="#121310"/>
+  <rect x="70" y="90" width="660" height="660" fill="#1A211B" stroke="#D99B26" stroke-width="6"/>
+  <text x="400" y="300" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="88">TODO</text>
+  <text x="400" y="390" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="88">QUEDA</text>
+  <text x="400" y="480" text-anchor="middle" fill="#D99B26" font-family="Georgia, serif" font-weight="bold" font-size="88">ACÁ</text>
+  <text x="400" y="580" text-anchor="middle" fill="#5C7A4E" font-family="monospace" font-size="26" letter-spacing="8">12" · 180G · PREVENTA</text>
+  <circle cx="400" cy="720" r="210" fill="url(#disc)"/>
+  <g stroke="#F4EFE6" fill="none" opacity="0.12">
+    <circle cx="400" cy="720" r="180"/><circle cx="400" cy="720" r="160"/><circle cx="400" cy="720" r="140"/>
+    <circle cx="400" cy="720" r="120"/><circle cx="400" cy="720" r="100"/>
+  </g>
+  <circle cx="400" cy="720" r="66" fill="#D99B26"/>
+  <circle cx="400" cy="720" r="8" fill="#121310"/>
+  <text x="60" y="960" fill="#7d7768" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
+  <rect width="800" height="1000" filter="url(#g3)" opacity="0.06"/>
+</svg>

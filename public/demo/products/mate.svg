@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Mate de acero, muestra">
+  <defs><filter id="g6"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+  <rect width="800" height="1000" fill="#121310"/>
+  <ellipse cx="400" cy="690" rx="250" ry="60" fill="#0b0c0a" opacity="0.6"/>
+  <path d="M240 360 L560 360 L520 720 Q400 770 280 720 Z" fill="#C9C6BD"/>
+  <path d="M240 360 L560 360 L552 430 L248 430 Z" fill="#8f8c83"/>
+  <rect x="250" y="470" width="300" height="190" fill="#5C4A33"/>
+  <text x="400" y="545" text-anchor="middle" fill="#D99B26" font-family="Georgia, serif" font-weight="bold" font-size="46">SUMA</text>
+  <text x="400" y="600" text-anchor="middle" fill="#D99B26" font-family="Georgia, serif" font-weight="bold" font-size="46">PACIENCIA</text>
+  <path d="M300 250 q 100 -60 200 0" fill="none" stroke="#D99B26" stroke-width="10"/>
+  <circle cx="400" cy="250" r="26" fill="none" stroke="#D99B26" stroke-width="10"/>
+  <text x="60" y="940" fill="#7d7768" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
+  <rect width="800" height="1000" filter="url(#g6)" opacity="0.06"/>
+</svg>

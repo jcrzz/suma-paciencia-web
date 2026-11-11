@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Gorra bordada, muestra">
+  <defs><filter id="g5"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+  <rect width="800" height="1000" fill="#E7DDCB"/>
+  <path d="M170 560 C 170 330, 630 330, 630 560 Z" fill="#1A211B"/>
+  <path d="M400 330 L400 560" stroke="#121310" stroke-width="6"/>
+  <path d="M400 560 C 480 560, 640 590, 700 660 C 620 700, 480 690, 400 660 Z" fill="#121310"/>
+  <text x="400" y="470" text-anchor="middle" fill="#D99B26" font-family="Georgia, serif" font-weight="bold" font-size="54">SUMA</text>
+  <text x="400" y="528" text-anchor="middle" fill="#D99B26" font-family="Georgia, serif" font-weight="bold" font-size="54">PACIENCIA</text>
+  <circle cx="400" cy="336" r="14" fill="#C85A32"/>
+  <text x="60" y="940" fill="#8a8172" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
+  <rect width="800" height="1000" filter="url(#g5)" opacity="0.06"/>
+</svg>
