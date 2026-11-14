@@ -187,7 +187,7 @@ export default function EpkPage() {
             {epk.booking_email && (
               <a
                 href={`mailto:${epk.booking_email}`}
-                className="flex items-center gap-3 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                className="flex min-w-0 items-center gap-3 break-all text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               >
                 <Mail className="h-4 w-4 text-[var(--accent-primary)]" /> {epk.booking_email}
               </a>
@@ -195,7 +195,7 @@ export default function EpkPage() {
             {epk.press_email && (
               <a
                 href={`mailto:${epk.press_email}`}
-                className="flex items-center gap-3 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                className="flex min-w-0 items-center gap-3 break-all text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               >
                 <Mail className="h-4 w-4 text-[var(--accent-primary)]" /> {epk.press_email}
               </a>
@@ -203,7 +203,7 @@ export default function EpkPage() {
             {epk.booking_phone && (
               <a
                 href={`tel:${epk.booking_phone.replace(/\s/g, '')}`}
-                className="flex items-center gap-3 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                className="flex min-w-0 items-center gap-3 break-all text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               >
                 <Phone className="h-4 w-4 text-[var(--accent-primary)]" /> {epk.booking_phone}
               </a>
@@ -227,7 +227,7 @@ function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between gap-4 px-5 py-3">
       <dt className="mono text-[0.65rem] uppercase tracking-[0.14em] text-[var(--text-secondary)]">{label}</dt>
-      <dd className="text-sm text-[var(--text-primary)] text-right">{value}</dd>
+      <dd className="break-words text-right text-sm text-[var(--text-primary)]">{value}</dd>
     </div>
   );
 }

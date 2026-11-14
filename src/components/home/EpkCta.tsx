@@ -40,7 +40,7 @@ export function EpkCta({ epk }: { epk: EpkInfo }) {
               </a>
             )}
           </div>
-          <p className="mono text-[0.68rem] uppercase tracking-[0.14em] text-[var(--text-on-contrast)]/70">
+          <p className="mono break-all text-[0.68rem] uppercase tracking-[0.14em] text-[var(--text-on-contrast)]/70">
             {epk.booking_email ? `Booking: ${epk.booking_email}` : 'Consultá por booking'}
             {epk.press_email ? ` · Prensa: ${epk.press_email}` : ''}
           </p>

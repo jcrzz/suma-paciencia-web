@@ -6,14 +6,14 @@
     </linearGradient>
   </defs>
   <rect width="800" height="1000" fill="#E7DDCB"/>
-  <path d="M180 210 L320 120 L480 120 L620 210 L560 330 L500 300 L500 830 L300 830 L300 300 L240 330 Z" fill="url(#sh)"/>
-  <path d="M320 120 C 350 190, 450 190, 480 120" fill="#1b1e19"/>
-  <circle cx="400" cy="430" r="150" fill="#D99B26"/>
-  <path d="M250 430 q 50 -40 100 0 t 100 0 t 100 0" fill="none" stroke="#121310" stroke-width="10"/>
-  <path d="M250 500 q 50 -40 100 0 t 100 0 t 100 0" fill="none" stroke="#5C7A4E" stroke-width="10"/>
-  <text x="400" y="660" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="64">TODO</text>
-  <text x="400" y="726" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="64">QUEDA ACÁ</text>
-  <text x="400" y="782" text-anchor="middle" fill="#D99B26" font-family="monospace" font-size="26" letter-spacing="6">SUMA PACIENCIA</text>
+  <path d="M290 170 L510 170 L700 260 L620 410 L560 375 L580 740 L220 740 L240 375 L180 410 L100 260 Z" fill="url(#sh)"/>
+  <path d="M290 170 C 335 240, 465 240, 510 170" fill="#1b1e19"/>
+  <circle cx="400" cy="400" r="130" fill="#D99B26"/>
+  <path d="M270 390 q 43 -36 86 0 t 86 0 t 86 0" fill="none" stroke="#121310" stroke-width="10"/>
+  <path d="M270 440 q 43 -36 86 0 t 86 0 t 86 0" fill="none" stroke="#5C7A4E" stroke-width="10"/>
+  <text x="400" y="585" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="60">TODO</text>
+  <text x="400" y="640" text-anchor="middle" fill="#F4EFE6" font-family="Georgia, serif" font-weight="bold" font-size="54">QUEDA ACÁ</text>
+  <text x="400" y="692" text-anchor="middle" fill="#D99B26" font-family="monospace" font-size="24" letter-spacing="6">SUMA PACIENCIA</text>
   <text x="60" y="940" fill="#8a8172" font-family="monospace" font-size="22" letter-spacing="4">MUESTRA · REEMPLAZAR DESDE /ADMIN</text>
   <rect width="800" height="1000" filter="url(#g)" opacity="0.06"/>
 </svg>

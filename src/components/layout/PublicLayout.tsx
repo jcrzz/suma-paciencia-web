@@ -6,7 +6,7 @@ import CartDrawer from '@/layout/CartDrawer';
 
 export default function PublicLayout() {
   return (
-    <div className="public-shell era-body-transition min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    <div className="public-shell era-body-transition min-h-screen overflow-x-clip bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <svg aria-hidden width="0" height="0" className="absolute">
         <defs>
           <filter id="era-pencil">

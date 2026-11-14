@@ -46,7 +46,7 @@ export function Modal({ open, onClose, title, children, size = 'md', footer }: M
         aria-modal="true"
         aria-label={title}
         className={clsx(
-          'relative w-full bg-[var(--bg-surface)] text-[var(--text-on-surface)] border-[length:var(--border-width)] border-[var(--border-primary)] shadow-[var(--card-shadow)] max-h-[92vh] overflow-y-auto',
+          'relative w-full bg-[var(--bg-surface)] text-[var(--text-on-surface)] border-[length:var(--border-width)] border-[var(--border-primary)] shadow-[var(--card-shadow)] max-h-[92dvh] overflow-y-auto pb-[env(safe-area-inset-bottom)] sm:pb-0',
           widths[size]
         )}
       >

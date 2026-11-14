@@ -1,12 +1,21 @@
 import { clsx } from 'clsx';
+import { Ticket } from 'lucide-react';
 import { formatDateLong, formatTime } from '@/lib/utils';
 import type { Show } from '@/types';
 
-const statusStyles: Record<Show['status'], { label: string; className: string }> = {
-  available: { label: 'Entradas disponibles', className: 'bg-[var(--accent-primary)] text-[var(--text-on-accent)]' },
-  sold_out: { label: 'Agotado', className: 'bg-[var(--status-danger)] text-[var(--text-on-danger)]' },
-  free: { label: 'Entrada libre', className: 'bg-[var(--status-ok)] text-[#F6EFE2]' },
-  cancelled: { label: 'Cancelada', className: 'bg-[var(--bg-contrast)] text-[var(--text-on-contrast)]/70' },
+const statusStyles: Record<Show['status'], { label: string; short: string; className: string }> = {
+  available: {
+    label: 'Entradas disponibles',
+    short: 'Entradas',
+    className: 'bg-[var(--accent-primary)] text-[var(--text-on-accent)]',
+  },
+  sold_out: { label: 'Agotado', short: 'Agotado', className: 'bg-[var(--status-danger)] text-[var(--text-on-danger)]' },
+  free: { label: 'Entrada libre', short: 'Libre', className: 'bg-[var(--status-ok)] text-[#F6EFE2]' },
+  cancelled: {
+    label: 'Cancelada',
+    short: 'Cancelada',
+    className: 'bg-[var(--bg-contrast)] text-[var(--text-on-contrast)]/70',
+  },
 };
 
 type Props = {
@@ -17,51 +26,69 @@ type Props = {
 export function ShowTicket({ show, isPast = false }: Props) {
   const status = statusStyles[show.status] ?? statusStyles.available;
   const date = formatDateLong(show.show_date);
+  const ticketUrl = isPast ? null : show.ticket_url;
 
   return (
     <article
       className={clsx(
-        'relative grid grid-cols-1 sm:grid-cols-[150px_1fr_auto] items-stretch gap-0 border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] text-[var(--text-on-surface)]',
+        'flex w-full flex-row items-center justify-between gap-0 border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] p-3 text-[var(--text-on-surface)] sm:p-4',
         isPast && 'opacity-55'
       )}
     >
-      <div className="relative px-5 py-5 sm:py-6 border-b sm:border-b-0 sm:border-r border-[var(--border-subtle)] text-center">
-        <span className="mono text-[0.62rem] uppercase tracking-[0.2em] text-[var(--text-on-surface-secondary)] block">
+      <div className="mr-3 flex w-[4.5rem] shrink-0 flex-col items-center justify-center border-r border-dashed border-[var(--border-subtle)] pr-3 text-center sm:mr-4 sm:w-20 sm:pr-4">
+        <span className="mono block text-[0.55rem] uppercase tracking-[0.14em] text-[var(--text-on-surface-secondary)] sm:text-[0.62rem] sm:tracking-[0.2em]">
           {date.weekday}
         </span>
-        <span className="display text-5xl font-bold leading-none text-[var(--text-on-surface)] block mt-1">
+        <span className="display mt-0.5 block text-3xl font-bold leading-none text-[var(--text-on-surface)] sm:mt-1 sm:text-5xl">
           {date.day}
         </span>
-        <span className="mono text-[0.68rem] uppercase tracking-[0.15em] text-[var(--accent-primary)] block mt-1">
+        <span className="mono mt-0.5 block text-[0.6rem] uppercase tracking-[0.12em] text-[var(--accent-primary)] sm:mt-1 sm:text-[0.68rem] sm:tracking-[0.15em]">
           {date.monthYear}
         </span>
       </div>
 
-      <div className="px-5 py-5 sm:py-6 flex flex-col justify-center gap-1.5">
-        <h3 className="display text-xl sm:text-2xl font-bold text-[var(--text-on-surface)] leading-tight">{show.city}</h3>
-        <p className="text-sm text-[var(--text-on-surface-secondary)]">{show.venue}</p>
-        <p className="mono text-[0.7rem] uppercase tracking-[0.12em] text-[var(--text-on-surface-secondary)]">
+      <div className="flex min-w-0 grow flex-col gap-0.5 text-left sm:gap-1.5">
+        <h3 className="display truncate text-base font-bold leading-tight text-[var(--text-on-surface)] sm:text-xl md:text-2xl">
+          {show.city}
+        </h3>
+        <p className="truncate text-xs text-[var(--text-on-surface-secondary)] sm:text-sm">{show.venue}</p>
+        <p className="mono truncate text-[0.62rem] uppercase tracking-[0.1em] text-[var(--text-on-surface-secondary)] sm:text-[0.7rem] sm:tracking-[0.12em]">
           {show.province} · {formatTime(show.show_date)} hs
         </p>
       </div>
 
-      <div className="px-5 py-5 sm:py-6 flex items-center sm:justify-end gap-3 border-t sm:border-t-0 sm:border-l border-[var(--border-subtle)]">
-        <span className={clsx('mono text-[0.65rem] uppercase tracking-[0.12em] px-3 py-1.5', status.className)}>
+      <div className="ml-2 flex shrink-0 items-center gap-2 sm:ml-3 sm:gap-3">
+        <span
+          className={clsx(
+            'mono hidden px-3 py-1.5 text-[0.65rem] uppercase tracking-[0.12em] sm:inline-block',
+            status.className
+          )}
+        >
           {status.label}
         </span>
-        {show.ticket_url && !isPast && (
+
+        {ticketUrl ? (
           <a
-            href={show.ticket_url}
+            href={ticketUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mono text-[0.65rem] uppercase tracking-[0.12em] px-3 py-1.5 border border-[var(--border-primary)] text-[var(--text-on-surface)] hover:bg-[var(--accent-primary)] hover:text-[var(--text-on-accent)] transition-colors"
+            aria-label={`Comprar entradas para ${show.city}`}
+            className="mono inline-flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--border-primary)] text-[var(--text-on-surface)] transition-colors hover:bg-[var(--accent-primary)] hover:text-[var(--text-on-accent)] sm:h-auto sm:w-auto sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-[0.65rem] sm:uppercase sm:tracking-[0.12em]"
           >
-            Comprar
+            <Ticket className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
+            <span className="hidden sm:inline">Comprar</span>
           </a>
+        ) : (
+          <span
+            className={clsx(
+              'mono px-2 py-1 text-[0.58rem] uppercase tracking-[0.1em] sm:hidden',
+              status.className
+            )}
+          >
+            {status.short}
+          </span>
         )}
       </div>
-
-      <span aria-hidden className="absolute left-[150px] top-0 bottom-0 hidden sm:block border-l border-dashed border-[var(--border-subtle)]" />
     </article>
   );
 }

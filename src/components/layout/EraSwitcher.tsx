@@ -18,10 +18,10 @@ export default function EraSwitcher({ compact = false, className = '' }: Props) 
       onClick={toggleNextEra}
       title="Cambiar estética de disco"
       aria-label={`${eraMeta.shortLabel}. Cambiar estética de disco: ${eraMeta.actionLabel}`}
-      className={`era-body-transition group inline-flex items-center gap-2.5 border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] text-[var(--text-on-surface)] px-2.5 py-1.5 shadow-[var(--card-shadow)] hover:-translate-y-0.5 hover:bg-[var(--bg-surface-alt)] ${className}`}
+      className={`era-body-transition group inline-flex items-center gap-2 border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] text-[var(--text-on-surface)] px-2 py-1.5 shadow-[var(--card-shadow)] hover:-translate-y-0.5 hover:bg-[var(--bg-surface-alt)] sm:gap-2.5 sm:px-2.5 ${className}`}
     >
       <span className="shrink-0 transition-transform duration-300 group-hover:-rotate-3">
-        {isNewEra ? <FelixSnailIcon className="h-8 w-10" /> : <PoleSunIcon className="h-8 w-10" />}
+        {isNewEra ? <FelixSnailIcon className="h-7 w-9 sm:h-8 sm:w-10" /> : <PoleSunIcon className="h-7 w-9 sm:h-8 sm:w-10" />}
       </span>
 
       <span className={`text-left leading-tight ${compact ? 'hidden sm:block' : 'block'}`}>
@@ -35,12 +35,6 @@ export default function EraSwitcher({ compact = false, className = '' }: Props) 
           {eraMeta.actionLabel}
         </span>
       </span>
-
-      {compact && (
-        <span className="mono text-[0.56rem] uppercase tracking-[0.12em] text-[var(--text-on-surface-secondary)] sm:hidden">
-          {index + 1}/{eras.length}
-        </span>
-      )}
     </button>
   );
 }

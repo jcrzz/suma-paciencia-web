@@ -31,13 +31,13 @@ export function MerchTeaser({ products }: { products: Product[] }) {
               to={`/tienda/${product.slug}`}
               className="group border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] text-[var(--text-on-surface)] hover:-translate-y-0.5 transition-all"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-[var(--bg-secondary)]">
+              <div className="aspect-[4/5] overflow-hidden bg-[var(--bg-secondary)] p-5 sm:p-6">
                 {product.images[0]?.url && (
                   <img
                     src={product.images[0].url}
                     alt={product.name}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 )}
               </div>

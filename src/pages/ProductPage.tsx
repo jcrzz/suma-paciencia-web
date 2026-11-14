@@ -67,17 +67,17 @@ export default function ProductPage() {
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           <div>
-            <div className="border border-[var(--border-subtle)] bg-[var(--bg-surface)] aspect-[4/5] overflow-hidden">
+            <div className="border border-[var(--border-subtle)] bg-[var(--bg-surface)] aspect-[4/5] overflow-hidden p-6 sm:p-10">
               {product.images[activeImage]?.url && (
                 <img
                   src={product.images[activeImage].url}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               )}
             </div>
             {product.images.length > 1 && (
-              <div className="flex gap-3 mt-3">
+              <div className="flex flex-wrap gap-3 mt-3">
                 {product.images.map((image, index) => (
                   <button
                     key={image.url}
@@ -89,7 +89,7 @@ export default function ProductPage() {
                     }`}
                     aria-label={`Ver foto ${index + 1}`}
                   >
-                    <img src={image.url} alt="" className="w-full h-full object-cover" />
+                    <img src={image.url} alt="" className="w-full h-full object-contain p-1" />
                   </button>
                 ))}
               </div>
@@ -110,7 +110,7 @@ export default function ProductPage() {
             <div className="mt-8 space-y-6">
               <VariantSelector variants={variants} selected={selected?.size ?? null} onSelect={setSelected} />
 
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4">
                 <span className="mono text-[0.68rem] uppercase tracking-[0.14em] text-[var(--text-secondary)]">Cantidad</span>
                 <div className="flex items-center border border-[var(--border-subtle)]">
                   <button

@@ -16,7 +16,9 @@ const NAV_LINKS = [
 export default function Navbar() {
   const { cartCount, openCart } = useCart();
   const location = useLocation();
-  const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState({ open: false, path: location.pathname });
+  const open = menu.open && menu.path === location.pathname;
+  const setOpen = (value: boolean) => setMenu({ open: value, path: location.pathname });
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,6 +28,19 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenu({ open: false, path: location.pathname });
+    };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [open, location.pathname]);
+
   return (
     <header
       className={`era-body-transition fixed top-0 inset-x-0 z-50 ${
@@ -34,8 +49,8 @@ export default function Navbar() {
           : 'bg-[var(--bg-primary)]/55 backdrop-blur-[2px]'
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 flex items-center justify-between gap-3 sm:gap-6">
-        <Link to="/" className="shrink-0" aria-label="Suma Paciencia, inicio">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 flex items-center justify-between gap-2 sm:gap-6">
+        <Link to="/" className="min-w-0 overflow-hidden" aria-label="Suma Paciencia, inicio">
           <BandLogo size="sm" showTagline={false} />
         </Link>
 
@@ -61,31 +76,27 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden md:block">
-            <EraSwitcher />
-          </div>
-          <div className="md:hidden">
-            <EraSwitcher compact />
-          </div>
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+          <EraSwitcher compact />
 
           <button
             onClick={openCart}
-            className="relative inline-flex items-center gap-2 border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] px-2.5 sm:px-4 py-2 text-[var(--text-on-surface)] shadow-[var(--card-shadow)] hover:-translate-y-0.5 hover:bg-[var(--accent-secondary)] transition-all"
+            className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] text-[var(--text-on-surface)] shadow-[var(--card-shadow)] hover:-translate-y-0.5 hover:bg-[var(--accent-secondary)] transition-all sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2"
             aria-label={`Carrito de compras, ${cartCount} productos`}
           >
             <ShoppingBag className="h-4 w-4" />
             <span className="mono text-[0.68rem] hidden sm:inline">Pedido</span>
-            <span className="mono text-[0.68rem] bg-[var(--accent-primary)] text-[var(--text-on-accent)] px-1.5 min-w-[1.35rem] text-center">
+            <span className="mono absolute -right-1.5 -top-1.5 min-w-[1.1rem] bg-[var(--accent-primary)] px-1 text-center text-[0.6rem] text-[var(--text-on-accent)] sm:static sm:min-w-[1.35rem] sm:px-1.5 sm:text-[0.68rem]">
               {cartCount}
             </span>
           </button>
 
           <button
-            onClick={() => setOpen((v) => !v)}
-            className="lg:hidden p-2 text-[var(--text-primary)]"
+            onClick={() => setOpen(!open)}
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center text-[var(--text-primary)] lg:hidden"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
+            aria-controls="mobile-nav"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -93,14 +104,24 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`lg:hidden overflow-hidden bg-[var(--bg-primary)] border-t-[length:var(--border-width)] border-[var(--border-primary)] transition-[max-height] duration-300 ${
-          open ? 'max-h-[680px]' : 'max-h-0'
+        id="mobile-nav"
+        className={`lg:hidden bg-[var(--bg-primary)] border-t-[length:var(--border-width)] border-[var(--border-primary)] transition-[max-height] duration-300 ${
+          open
+            ? 'max-h-[calc(100dvh-5rem)] sm:max-h-[calc(100dvh-6rem)] overflow-y-auto'
+            : 'max-h-0 overflow-hidden'
         }`}
       >
         <div className="px-4 sm:px-8 py-4 border-b border-[var(--border-subtle)]">
           <EraSwitcher className="w-full justify-between" />
         </div>
         <nav className="px-4 sm:px-8 py-4 flex flex-col" aria-label="Navegación móvil">
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="display text-2xl font-bold text-[var(--text-primary)] py-2.5 border-b border-[var(--border-subtle)]"
+          >
+            Inicio
+          </Link>
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -112,6 +133,18 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
+        <div className="px-4 sm:px-8 pt-1 pb-[calc(1rem+env(safe-area-inset-bottom))]">
+          <button
+            onClick={() => {
+              setOpen(false);
+              openCart();
+            }}
+            className="inline-flex w-full items-center justify-center gap-2 border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] px-4 py-3 text-[var(--text-on-surface)] shadow-[var(--card-shadow)] hover:bg-[var(--accent-secondary)] transition-colors"
+          >
+            <ShoppingBag className="h-4 w-4" />
+            <span className="mono text-[0.72rem] uppercase tracking-[0.14em]">Ver pedido ({cartCount})</span>
+          </button>
+        </div>
       </div>
     </header>
   );

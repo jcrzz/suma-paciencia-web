@@ -40,7 +40,7 @@ export default function CartDrawer() {
         role="dialog"
         aria-modal="true"
         aria-label="Carrito de compras"
-        className={`absolute right-0 top-0 h-full w-full max-w-[440px] bg-[var(--bg-surface)] text-[var(--text-on-surface)] border-l-[length:var(--border-width)] border-[var(--border-primary)] flex flex-col transform transition-transform duration-300 ${
+        className={`absolute right-0 top-0 h-[100dvh] w-full max-w-[440px] bg-[var(--bg-surface)] text-[var(--text-on-surface)] border-l-[length:var(--border-width)] border-[var(--border-primary)] flex flex-col transform transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -109,7 +109,7 @@ export default function CartDrawer() {
               ))}
             </ul>
 
-            <footer className="border-t-[length:var(--border-width)] border-[var(--border-primary)] px-5 py-4 space-y-3">
+            <footer className="border-t-[length:var(--border-width)] border-[var(--border-primary)] px-5 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] space-y-3">
               <div className="flex items-center justify-between">
                 <span className="mono text-xs uppercase tracking-[0.12em] text-[var(--text-on-surface-secondary)]">Total</span>
                 <span className="display text-2xl font-bold">{formatPrice(subtotal)}</span>

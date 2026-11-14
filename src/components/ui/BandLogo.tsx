@@ -10,14 +10,14 @@ type Props = {
 };
 
 const handSizes = {
-  sm: 'text-[1.55rem] sm:text-[1.8rem]',
+  sm: 'text-lg sm:text-[1.8rem]',
   md: 'text-[2.4rem] sm:text-[3rem]',
   lg: 'text-[clamp(3rem,7vw,5.2rem)]',
   xl: 'text-[clamp(3.6rem,10vw,7.6rem)]',
 };
 
 const stencilSizes = {
-  sm: 'text-[1.35rem] sm:text-[1.55rem]',
+  sm: 'text-lg sm:text-[1.55rem]',
   md: 'text-[2rem] sm:text-[2.6rem]',
   lg: 'text-[clamp(2.5rem,6vw,4.4rem)]',
   xl: 'text-[clamp(3rem,9vw,6.4rem)]',
@@ -33,14 +33,14 @@ const sumaBlockSizes = {
 const fitHandSizes = {
   sm: 'text-[clamp(1.5rem,6cqw,1.8rem)]',
   md: 'text-[clamp(1.8rem,8cqw,3rem)]',
-  lg: 'text-[clamp(2.2rem,10cqw,4.8rem)]',
+  lg: 'text-[clamp(1.8rem,10cqw,4.8rem)]',
   xl: 'text-[clamp(2.6rem,12cqw,6.2rem)]',
 };
 
 const fitStencilSizes = {
   sm: 'text-[clamp(1.35rem,5cqw,1.55rem)]',
   md: 'text-[clamp(1.6rem,6.5cqw,2.6rem)]',
-  lg: 'text-[clamp(1.9rem,7.5cqw,4.4rem)]',
+  lg: 'text-[clamp(1.6rem,7.5cqw,4.4rem)]',
   xl: 'text-[clamp(2.2rem,9cqw,6.4rem)]',
 };
 

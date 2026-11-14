@@ -10,7 +10,7 @@ export function GalleryTeaser({ items }: { items: GalleryItem[] }) {
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 py-16 sm:py-24">
         <header className="flex flex-wrap items-end justify-between gap-4 mb-10">
           <div>
-            <h2 className="display text-3xl sm:text-4xl font-bold text-[var(--text-on-contrast)]">GALERÍA</h2>
+            <h2 className="display text-3xl sm:text-4xl font-bold text-[var(--text-primary)]">GALERÍA</h2>
             <p className="mono text-[0.68rem] uppercase tracking-[0.2em] text-[var(--text-secondary)] mt-2">
               Fotos y videos de la banda en vivo
             </p>

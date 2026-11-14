@@ -13,12 +13,15 @@ type Props = {
 export default function ProductCard({ product, image, variantLabel, stockLabel, cta }: Props) {
   return (
     <article className="group relative flex flex-col border-[length:var(--border-width)] border-[var(--border-primary)] bg-[var(--bg-surface)] hover:-translate-y-0.5 hover:shadow-[var(--card-shadow)] transition-colors">
-      <Link to={`/tienda/${product.slug}`} className="block aspect-[4/5] overflow-hidden bg-[var(--bg-secondary)]">
+      <Link
+        to={`/tienda/${product.slug}`}
+        className="block aspect-[4/5] overflow-hidden bg-[var(--bg-secondary)] p-5 sm:p-6"
+      >
         <img
           src={image}
           alt={product.name}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </Link>
 
